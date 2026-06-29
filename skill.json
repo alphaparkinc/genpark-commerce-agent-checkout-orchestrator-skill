@@ -1,0 +1,55 @@
+{
+  "name": "commerce-agent-checkout-orchestrator-skill",
+  "description": "Multi-gateway checkout orchestrator skill. Validates shopping cart line items, applies pricing rules/discounts, calculates shipping rates, and constructs signed checkout payloads.",
+  "version": "1.0.0",
+  "author": "alphaparkinc",
+  "inputs": {
+    "cart_items": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "sku": { "type": "string" },
+          "price": { "type": "number" },
+          "quantity": { "type": "integer" }
+        },
+        "required": ["sku", "price", "quantity"]
+      }
+    },
+    "discount_code": {
+      "type": "string"
+    },
+    "shipping_address": {
+      "type": "object",
+      "properties": {
+        "country": { "type": "string" },
+        "postal_code": { "type": "string" }
+      },
+      "required": ["country", "postal_code"]
+    },
+    "target_gateway": {
+      "type": "string",
+      "enum": ["stripe", "paypal"],
+      "default": "stripe"
+    }
+  },
+  "outputs": {
+    "pricing_summary": {
+      "type": "object",
+      "properties": {
+        "subtotal": { "type": "number" },
+        "discount_amount": { "type": "number" },
+        "shipping_cost": { "type": "number" },
+        "grand_total": { "type": "number" }
+      }
+    },
+    "gateway_payload": {
+      "type": "object",
+      "description": "Ready-to-submit API request parameters for checkout setup."
+    },
+    "signature_hash": {
+      "type": "string",
+      "description": "HMAC-SHA256 verification hash to validate checkout parameters integrity."
+    }
+  },
+  "prompt": "You are a commerce agent checkout orchestrator. Your objective is to audit shopping cart items, compute active discount values, resolve shipping options, and compile a signed API payload draft for Stripe/PayPal payment checkout."
+}
