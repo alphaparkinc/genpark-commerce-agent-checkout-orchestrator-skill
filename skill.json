@@ -1,5 +1,5 @@
 {
-  "name": "commerce-agent-checkout-orchestrator-skill",
+  "name": "genpark-commerce-agent-checkout-orchestrator-skill",
   "description": "GenPark AI Agent Skill - Multi-gateway checkout orchestrator skill. Validates shopping cart line items, applies pricing rules/discounts, calculates shipping rates, and constructs signed checkout payloads.",
   "version": "1.0.0",
   "author": "genpark",
