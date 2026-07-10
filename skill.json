@@ -1,18 +1,28 @@
 {
   "name": "commerce-agent-checkout-orchestrator-skill",
-  "description": "Multi-gateway checkout orchestrator skill. Validates shopping cart line items, applies pricing rules/discounts, calculates shipping rates, and constructs signed checkout payloads.",
+  "description": "GenPark AI Agent Skill - Multi-gateway checkout orchestrator skill. Validates shopping cart line items, applies pricing rules/discounts, calculates shipping rates, and constructs signed checkout payloads.",
   "version": "1.0.0",
-  "author": "alphaparkinc",
+  "author": "genpark",
   "inputs": {
     "cart_items": {
       "type": "array",
       "items": {
         "properties": {
-          "sku": { "type": "string" },
-          "price": { "type": "number" },
-          "quantity": { "type": "integer" }
+          "sku": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "integer"
+          }
         },
-        "required": ["sku", "price", "quantity"]
+        "required": [
+          "sku",
+          "price",
+          "quantity"
+        ]
       }
     },
     "discount_code": {
@@ -21,14 +31,24 @@
     "shipping_address": {
       "type": "object",
       "properties": {
-        "country": { "type": "string" },
-        "postal_code": { "type": "string" }
+        "country": {
+          "type": "string"
+        },
+        "postal_code": {
+          "type": "string"
+        }
       },
-      "required": ["country", "postal_code"]
+      "required": [
+        "country",
+        "postal_code"
+      ]
     },
     "target_gateway": {
       "type": "string",
-      "enum": ["stripe", "paypal"],
+      "enum": [
+        "stripe",
+        "paypal"
+      ],
       "default": "stripe"
     }
   },
@@ -36,10 +56,18 @@
     "pricing_summary": {
       "type": "object",
       "properties": {
-        "subtotal": { "type": "number" },
-        "discount_amount": { "type": "number" },
-        "shipping_cost": { "type": "number" },
-        "grand_total": { "type": "number" }
+        "subtotal": {
+          "type": "number"
+        },
+        "discount_amount": {
+          "type": "number"
+        },
+        "shipping_cost": {
+          "type": "number"
+        },
+        "grand_total": {
+          "type": "number"
+        }
       }
     },
     "gateway_payload": {
