@@ -1,4 +1,6 @@
-# Commerce Agent Checkout Orchestrator Skill
+# commerce-agent-checkout-orchestrator-skill
+
+> **GenPark AI Agent Skill** -- # Commerce Agent Checkout Orchestrator Skill
 
 This repository contains the **Commerce Agent Checkout Orchestrator Skill** — an agent configuration skill config (`skill.json`), a production-ready Python SDK client (`checkout_orchestrator.py`), and executable verification tests. It is designed to orchestrate checkout sessions across payment gateways (Stripe & PayPal), calculate dynamic discounts, resolve location-based shipping, and compute HMAC-SHA256 verification hashes to prevent checkout request tampering.
 
