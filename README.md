@@ -1,4 +1,4 @@
-# commerce-agent-checkout-orchestrator-skill
+# genpark-commerce-agent-checkout-orchestrator-skill
 
 > **GenPark AI Agent Skill** -- # Commerce Agent Checkout Orchestrator Skill
 
